@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+     
+        <h3>ДОБАВИТЬ СТУДЕНТА</h3>
+        <form v-on:submit.prevent='add'>
+            <input type="text" id='todoname' class="txt" v-model='newText1' placeholder='Введите имя' /><br>
+            <input type="text" id="todofullname" class="txt" v-model='newText2' placeholder="Введите фамилию" /><br>
+            <button id="add" v-on:click='cheking'>Добавить</button>
+            <div class="clearfix"></div>
+        </form><br>
+
+        <h3>СПИСОК СТУДЕНТОВ</h3>
+        <ol id='ol' v-on:click='cheking'>
+            <li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:fullname="todo.fullname + ' '"
+                v-bind:name="todo.name" v-on:remove="todos.splice(index, 1)">
+            </li>
+        </ol>
+        <div id='info'>Список пуст.</div>
+    </div>
+
+
+</body>
+<script src="js.js"></script>
+
+</html>
